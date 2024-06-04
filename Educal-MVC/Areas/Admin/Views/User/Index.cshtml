@@ -1,0 +1,50 @@
+﻿@model List<UserRoleVM>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1 class="text-center">Users</h1>
+
+
+    <div class="create-operation mt-3">
+        <a class="btn btn-success btn-sm" asp-action="Create"> Add Role
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+        </a>
+    </div>
+
+
+
+<div class="card mt-4">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>FullName</th>
+                    <th>UserName</th>
+
+                    <th>Email</th>
+
+                    <th>Roles</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="category-data">
+                        <td>@item.FullName</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Roles</td>
+
+                   
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

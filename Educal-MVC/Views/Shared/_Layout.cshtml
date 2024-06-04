@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+          href="https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-straight/css/uicons-regular-straight.css" />
+    <link rel="stylesheet" href="~/assets/css/home.css" />
+</head>
+<body>
+    <header class="sticky-top">
+        <div class="header-area">
+            <div class="row align-items-center">
+                <div class="col-3">
+                    <div class="header-left d-flex justify-content-evenly align-items-center">
+                        <img src="~/assets/images/logo.png" alt="" />
+                        <div class="categories category-white">
+                            <div class="category-text d-flex align-items-center">
+                                <div class="grid-box d-flex">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                                <span>Category</span>
+                            </div>
+                            <ul class="category-submenu">
+                                <li>
+                                    <a href="">English Learning</a>
+                                </li>
+                                <li>
+                                    <a href="">Web Development</a>
+                                </li>
+                                <li>
+                                    <a href="">Logo Design</a>
+                                </li>
+                                <li>
+                                    <a href="">Motion Graphics</a>
+                                </li>
+                                <li>
+                                    <a href="">Video Edition</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="header-right">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <button class="navbar-toggler"
+                                    type="button"
+                                    data-toggle="collapse"
+                                    data-target="#navbarNav"
+                                    aria-controls="navbarNav"
+                                    aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <i class="fa-solid fa-bars"></i>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li data-id="1" class="nav-item">
+                                        <a class="nav-link" href="./home.html">
+                                            <span>Home</span>
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </a>
+                                        <ul class="submenu" data-id="1">
+                                            <li><a href="">Home Style 1</a></li>
+                                            <li><a href="">Home Style 2</a></li>
+                                            <li><a href="">Home Style 3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="2" class="nav-item">
+                                        <a class="nav-link" href="./courses.html">
+                                            <span>Courses</span>
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </a>
+                                        <ul class="submenu" data-id="2">
+                                            <li><a href="">Courses</a></li>
+                                            <li><a href="">Course List</a></li>
+                                            <li><a href="">Course Sidebar</a></li>
+                                            <li><a href="">Course Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="3" class="nav-item">
+                                        <a class="nav-link" href="./blog.html">
+                                            <span>Blog</span>
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </a>
+                                        <ul class="submenu" data-id="3">
+                                            <li><a href="">Blog</a></li>
+                                            <li><a href="">Blog Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="4" class="nav-item">
+                                        <a class="nav-link" href="">
+                                            <span>Account</span>
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </a>
+                                        <ul class="submenu" data-id="4">
+
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <li><a href="">@User.Identity.Name</a></li>
+                                                <li>
+                                                    <form method="post" asp-controller="Account" asp-action="Logout">
+                                                        <button type="submit" style="border-radius:20px;" href="">Logout </button>
+                                                    </form>
+                                                </li>
+                                                @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+                                                {
+                                                    <li><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Go To Admin</a></li>
+
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                <li><a asp-controller="Account" asp-action="Register">Sign Up</a></li>
+                                                <li><a asp-controller="Account" asp-action="Login">Sign In</a></li>
+                                            }
+
+                                           
+                                            
+                                           
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./contact.html">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="search-area">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="search" placeholder="Search..." />
+                                <img src="~/assets/images/shopping-cart.png" alt="" />
+                                <sup>2</sup>
+                            </div>
+                            <a href="">Try for free</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-mobile">
+            <div class="sidebar-area">
+                <div class="close">
+                    <button><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="logo">
+                    <img src="~/assets/images/logo.png" alt="" />
+                </div>
+                <div class="sidebar-content">
+                    <ul>
+                        <li class="menu" data-id="1">
+                            Home
+                            <i class="fa-solid fa-chevron-down"></i>
+                            <ul class="mob-submenu d-none" data-id="1">
+                                <li>
+                                    <a href="./home.html">Home Style 1</a>
+                                </li>
+                                <li>
+                                    <a href="">Home Style 2</a>
+                                </li>
+                                <li>
+                                    <a href="">Home Style 3</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu" data-id="2">
+                            Courses
+                            <i class="fa-solid fa-chevron-down"></i>
+                            <ul class="mob-submenu d-none" data-id="2">
+                                <li>
+                                    <a href="./courses.html">Courses</a>
+                                </li>
+                                <li>
+                                    <a href="">Course List</a>
+                                </li>
+                                <li>
+                                    <a href="">Course Sidebar</a>
+                                </li>
+                                <li>
+                                    <a href="">Course Details</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu" data-id="3">
+                            Blog
+                            <i class="fa-solid fa-chevron-down"></i>
+                            <ul class="mob-submenu d-none" data-id="3">
+                                <li>
+                                    <a href="./blog.html">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="">Blog List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Pages
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </li>
+                        <li>
+                            <a class="menu" href="./contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search..." />
+                        <a href="">
+                            <svg _ngcontent-mkt-c73=""
+                                 version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 x="0px"
+                                 y="0px"
+                                 viewBox="0 0 584.4 584.4"
+                                 xml:space="preserve"
+                                 style="enable-background: new 0 0 584.4 584.4">
+                            <g _ngcontent-mkt-c73="">
+                            <g _ngcontent-mkt-c73="">
+                            <path _ngcontent-mkt-c73=""
+                                  d="M565.7,474.9l-61.1-61.1c-3.8-3.8-8.8-5.9-13.9-5.9c-6.3,0-12.1,3-15.9,8.3c-16.3,22.4-36,42.1-58.4,58.4    c-4.8,3.5-7.8,8.8-8.3,14.5c-0.4,5.6,1.7,11.3,5.8,15.4l61.1,61.1c12.1,12.1,28.2,18.8,45.4,18.8c17.1,0,33.3-6.7,45.4-18.8    C590.7,540.6,590.7,499.9,565.7,474.9z"
+                                  class="st0"></path>
+                            <path _ngcontent-mkt-c73=""
+                                  d="M254.6,509.1c140.4,0,254.5-114.2,254.5-254.5C509.1,114.2,394.9,0,254.6,0C114.2,0,0,114.2,0,254.5    C0,394.9,114.2,509.1,254.6,509.1z M254.6,76.4c98.2,0,178.1,79.9,178.1,178.1s-79.9,178.1-178.1,178.1S76.4,352.8,76.4,254.5    S156.3,76.4,254.6,76.4z"
+                                  class="st1"></path>
+                    </g>
+                  </g>
+                </svg>
+                        </a>
+                    </div>
+                    <div class="cart-box">
+                        <a href="">
+                            <img src="~/assets/images/cart.svg" alt="" />
+                            <span>3</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        <div class="footer-top ">
+            <div class="custom-container ">
+                <div class="footer-slogan">
+                    <div class="slogan-area d-flex align-items-center justify-content-between">
+                        <h3>
+                            You can be your own <br />
+                            Guiding star with our help
+                        </h3>
+                        <a href="">Get started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-center">
+            <div class="custom-container">
+                <div class="row">
+                    <div class="col-12 col-md-3 mt-4 mt-md-0">
+                        <div class="socials">
+                            <img src="~/assets/images/logo-2.png" alt="" />
+                            <p>
+                                Great lesson ideas and lesson plans for ESL teachers!
+                                Educators can customize lesson plans to best.
+                            </p>
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa-brands fa-pinterest-p"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 mt-4 mt-md-0">
+                        <div class="company-platform company">
+                            <h3>Company</h3>
+                            <ul>
+                                <li>
+                                    <a href="">About</a>
+                                </li>
+                                <li>
+                                    <a href="">Courses</a>
+                                </li>
+                                <li>
+                                    <a href="">Events</a>
+                                </li>
+                                <li>
+                                    <a href="">Instructor</a>
+                                </li>
+                                <li>
+                                    <a href="">Career</a>
+                                </li>
+                                <li>
+                                    <a href="">Become a Teacher</a>
+                                </li>
+                                <li>
+                                    <a href="">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 mt-4 mt-md-0">
+                        <div class="company-platform platform">
+                            <h3>Platform</h3>
+                            <ul>
+                                <li>
+                                    <a href="">Browse Library</a>
+                                </li>
+                                <li>
+                                    <a href="">Library</a>
+                                </li>
+                                <li>
+                                    <a href="">Partners</a>
+                                </li>
+                                <li>
+                                    <a href="">News & Blogs</a>
+                                </li>
+                                <li>
+                                    <a href="">FAQs</a>
+                                </li>
+                                <li>
+                                    <a href="">Tutorials</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 mt-4 mt-md-0">
+                        <div class="subscribe-area">
+                            <h3>Subscribe</h3>
+                            <div class="search-box d-flex align-items-center">
+                                <input type="text"
+                                       name=""
+                                       id=""
+                                       placeholder="Your email address" />
+                                <a href="">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            <p>Get the latest news and updates right at your inbox</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2022 Educal, All Rights Reserved. Design By
+                <a href="">Theme Pure</a>
+            </p>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/b8714a14d2.js"
+            crossorigin="anonymous"></script>
+    <script src="~/assets/js/home.js"></script>
+</body>
+</html>
